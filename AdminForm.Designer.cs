@@ -33,7 +33,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRemoveAccomodation = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxAccommodation = new System.Windows.Forms.ListBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.btnAddNewAccomodation = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -89,15 +89,16 @@
             this.btnRemoveAccomodation.TabIndex = 26;
             this.btnRemoveAccomodation.Text = "Remove";
             this.btnRemoveAccomodation.UseVisualStyleBackColor = true;
+            this.btnRemoveAccomodation.Click += new System.EventHandler(this.btnRemoveAccomodation_Click);
             // 
-            // listBox1
+            // listBoxAccommodation
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(413, 60);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(352, 264);
-            this.listBox1.TabIndex = 25;
+            this.listBoxAccommodation.FormattingEnabled = true;
+            this.listBoxAccommodation.ItemHeight = 20;
+            this.listBoxAccommodation.Location = new System.Drawing.Point(413, 60);
+            this.listBoxAccommodation.Name = "listBoxAccommodation";
+            this.listBoxAccommodation.Size = new System.Drawing.Size(352, 264);
+            this.listBoxAccommodation.TabIndex = 25;
             // 
             // cbCountry
             // 
@@ -183,7 +184,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRemoveAccomodation);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxAccommodation);
             this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.btnAddNewAccomodation);
             this.Controls.Add(this.label4);
@@ -208,7 +209,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnRemoveAccomodation;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxAccommodation;
         private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.Button btnAddNewAccomodation;
         private System.Windows.Forms.Label label4;
