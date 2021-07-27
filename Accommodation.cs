@@ -8,29 +8,24 @@ namespace ZadatakOdmor
 {
     class Accommodation
     {
-        private string nameOfAccomadtion;
-        private int pricePerNight;
-        private string city;
-        Places places;
-        
-
-
-        public string NameOfAccomadtion { get { return nameOfAccomadtion; } }
-        public int PricePerNight { get { return pricePerNight; } }
-        public string City { get { return city; } }
-        public Places Conutry { get; private set; }
-        public AccommodationInfo infoEnum { get; set; }
+ 
+        public string NameOfAccomodation { get; }
+        public int PricePerNight { get; }
+        public string City { get; }
+        public Places Country { get; }
+        public AccommodationInfo InfoEnum { get; set; }
 
         public Accommodation(string nameOfAccommodation,int pricePerNight,string city,Places places)
         {
-            this.nameOfAccomadtion = NameOfAccomadtion;
-            this.pricePerNight = PricePerNight;
-            this.city = City;
-            
+            NameOfAccomodation = nameOfAccommodation;
+            PricePerNight = pricePerNight;
+            City = city;
+            Country = places;
+
         }
         public string GetInfo()
         {
-            return nameOfAccomadtion + " , " + pricePerNight+ " , " + city + " , " + places.ToString();
+            return NameOfAccomodation + " , " + PricePerNight+ " , " + City + " , " + Country.ToString();
         }
 
 
