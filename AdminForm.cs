@@ -14,7 +14,7 @@ namespace ZadatakOdmor
     {
         Admin admin;
         AccommodationManagement accommodationManagement;
-        Accommodation accommodation;
+        //Accommodation accommodation;
         public AdminForm()
         {
             InitializeComponent();
@@ -67,6 +67,11 @@ namespace ZadatakOdmor
             }
             else
                 MessageBox.Show("Error");
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            RefreshListBox();
         }
     }
 }

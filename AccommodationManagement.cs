@@ -18,6 +18,10 @@ namespace ZadatakOdmor
             accommodation = new Accommodation(name, ppn, city, places);
             accommodations.Add(accommodation);
         }
+        public int getPrice(int ppn)
+        {
+            return ppn;
+        }
         public void RemoveAccommodation(int aIndex)
         {
             accommodations.RemoveAt(aIndex);

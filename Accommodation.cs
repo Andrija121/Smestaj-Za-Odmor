@@ -8,7 +8,6 @@ namespace ZadatakOdmor
 {
     class Accommodation
     {
- 
         public string NameOfAccomodation { get; }
         public int PricePerNight { get; }
         public string City { get; }
@@ -23,9 +22,14 @@ namespace ZadatakOdmor
             Country = places;
 
         }
+
+        public Accommodation()
+        {
+        }
+
         public string GetInfo()
         {
-            return NameOfAccomodation + " , " + PricePerNight+ " , " + City + " , " + Country.ToString();
+            return NameOfAccomodation + " , " + PricePerNight + " , " + City + " , " + Country.ToString();
         }
 
 
