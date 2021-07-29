@@ -108,16 +108,37 @@ namespace ZadatakOdmor
         private void cbConutry_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbAvailableAccommodations.Items.Clear();
-            
-            foreach (var acc in accommodationManagement.GetAccommodations())
+            if (cbConutry.Text != "")
             {
-                if (acc.Country.Equals((Places)cbConutry.SelectedValue))
+                foreach (var acc in accommodationManagement.GetAccommodations())
                 {
-                    
-                    lbAvailableAccommodations.Items.Add(acc.GetInfo());
+                    if (acc.Country.Equals((Places) cbConutry.SelectedValue))
+                    {
+
+                        lbAvailableAccommodations.Items.Add(acc.GetInfo());
+                    }
+
+
                 }
-               
             }
+        }
+
+        private void btnReserve_Click(object sender, EventArgs e)
+        {
+
+            DateTime startDate= dateTimePicker1.Value = accommodation.StartDate;
+            DateTime endDate = dateTimePicker2.Value = accommodation.EndDate;
+            if(startDate>endDate)
+            {
+                MessageBox.Show("Please Select Valid Dates");
+
+            }
+            foreach (var item in accommodationManagement.GetAccommodations())
+            {
+                accommodationManagement.ChangeAccommodationStatus(lbAvailableAccommodations.SelectedIndex, AccommodationInfo.Reserved);
+                accommodationManagement.MakeAccommodationReserved(item);
+            }
+            
         }
     }
 }

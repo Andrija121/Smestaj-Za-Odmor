@@ -35,17 +35,17 @@
             this.btnReserve = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbConutry = new System.Windows.Forms.ComboBox();
-            this.rbLess50 = new System.Windows.Forms.RadioButton();
-            this.rbLess100more50 = new System.Windows.Forms.RadioButton();
-            this.rb100plus = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rb100plus = new System.Windows.Forms.RadioButton();
+            this.rbLess100more50 = new System.Windows.Forms.RadioButton();
+            this.rbLess50 = new System.Windows.Forms.RadioButton();
+            this.cbConutry = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.btnShowAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +92,7 @@
             this.btnReserve.TabIndex = 21;
             this.btnReserve.Text = "Reserve";
             this.btnReserve.UseVisualStyleBackColor = true;
+            this.btnReserve.Click += new System.EventHandler(this.btnReserve_Click);
             // 
             // label2
             // 
@@ -117,47 +118,43 @@
             this.panel1.Size = new System.Drawing.Size(218, 257);
             this.panel1.TabIndex = 23;
             // 
-            // label3
+            // btnShowAll
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 20);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Filters";
+            this.btnShowAll.Location = new System.Drawing.Point(110, 212);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(101, 42);
+            this.btnShowAll.TabIndex = 27;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
-            // cbConutry
+            // btnFilter
             // 
-            this.cbConutry.FormattingEnabled = true;
-            this.cbConutry.Location = new System.Drawing.Point(44, 25);
-            this.cbConutry.Name = "cbConutry";
-            this.cbConutry.Size = new System.Drawing.Size(116, 28);
-            this.cbConutry.TabIndex = 25;
-            this.cbConutry.SelectedIndexChanged += new System.EventHandler(this.cbConutry_SelectedIndexChanged);
+            this.btnFilter.Location = new System.Drawing.Point(3, 212);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(101, 42);
+            this.btnFilter.TabIndex = 31;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // rbLess50
+            // label5
             // 
-            this.rbLess50.AutoSize = true;
-            this.rbLess50.Location = new System.Drawing.Point(44, 97);
-            this.rbLess50.Name = "rbLess50";
-            this.rbLess50.Size = new System.Drawing.Size(65, 24);
-            this.rbLess50.TabIndex = 26;
-            this.rbLess50.TabStop = true;
-            this.rbLess50.Text = "< 50";
-            this.rbLess50.UseVisualStyleBackColor = true;
-            this.rbLess50.CheckedChanged += new System.EventHandler(this.rbLess50_CheckedChanged);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 20);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Price Per Night";
             // 
-            // rbLess100more50
+            // label4
             // 
-            this.rbLess100more50.AutoSize = true;
-            this.rbLess100more50.Location = new System.Drawing.Point(44, 127);
-            this.rbLess100more50.Name = "rbLess100more50";
-            this.rbLess100more50.Size = new System.Drawing.Size(92, 24);
-            this.rbLess100more50.TabIndex = 27;
-            this.rbLess100more50.TabStop = true;
-            this.rbLess100more50.Text = "50 - 100";
-            this.rbLess100more50.UseVisualStyleBackColor = true;
-            this.rbLess100more50.CheckedChanged += new System.EventHandler(this.rbLess100more50_CheckedChanged);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 20);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Country";
             // 
             // rb100plus
             // 
@@ -171,23 +168,47 @@
             this.rb100plus.UseVisualStyleBackColor = true;
             this.rb100plus.CheckedChanged += new System.EventHandler(this.rb100plus_CheckedChanged);
             // 
-            // label4
+            // rbLess100more50
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Country";
+            this.rbLess100more50.AutoSize = true;
+            this.rbLess100more50.Location = new System.Drawing.Point(44, 127);
+            this.rbLess100more50.Name = "rbLess100more50";
+            this.rbLess100more50.Size = new System.Drawing.Size(92, 24);
+            this.rbLess100more50.TabIndex = 27;
+            this.rbLess100more50.TabStop = true;
+            this.rbLess100more50.Text = "50 - 100";
+            this.rbLess100more50.UseVisualStyleBackColor = true;
+            this.rbLess100more50.CheckedChanged += new System.EventHandler(this.rbLess100more50_CheckedChanged);
             // 
-            // label5
+            // rbLess50
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 20);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Price Per Night";
+            this.rbLess50.AutoSize = true;
+            this.rbLess50.Location = new System.Drawing.Point(44, 97);
+            this.rbLess50.Name = "rbLess50";
+            this.rbLess50.Size = new System.Drawing.Size(65, 24);
+            this.rbLess50.TabIndex = 26;
+            this.rbLess50.TabStop = true;
+            this.rbLess50.Text = "< 50";
+            this.rbLess50.UseVisualStyleBackColor = true;
+            this.rbLess50.CheckedChanged += new System.EventHandler(this.rbLess50_CheckedChanged);
+            // 
+            // cbConutry
+            // 
+            this.cbConutry.FormattingEnabled = true;
+            this.cbConutry.Location = new System.Drawing.Point(44, 25);
+            this.cbConutry.Name = "cbConutry";
+            this.cbConutry.Size = new System.Drawing.Size(116, 28);
+            this.cbConutry.TabIndex = 25;
+            this.cbConutry.SelectedIndexChanged += new System.EventHandler(this.cbConutry_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(414, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 20);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Filters";
             // 
             // label6
             // 
@@ -204,26 +225,6 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(292, 26);
             this.dateTimePicker2.TabIndex = 25;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Location = new System.Drawing.Point(3, 212);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(101, 42);
-            this.btnFilter.TabIndex = 31;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.Location = new System.Drawing.Point(110, 212);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(101, 42);
-            this.btnShowAll.TabIndex = 27;
-            this.btnShowAll.Text = "Show All";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // UserForm
             // 
