@@ -111,22 +111,7 @@ namespace ZadatakOdmor
             
             foreach (var acc in accommodationManagement.GetAccommodations())
             {
-                if (acc.Country.Equals(Places.CrnaGora))
-                {
-                    
-                    lbAvailableAccommodations.Items.Add(acc.GetInfo());
-                }
-                else if (acc.Country.Equals(Places.Grcka))
-                {
-                    
-                    lbAvailableAccommodations.Items.Add(acc.GetInfo());
-                }
-                else if (acc.Country.Equals(Places.Hrvatska))
-                {
-                    
-                    lbAvailableAccommodations.Items.Add(acc.GetInfo());
-                }
-                else if (acc.Country.Equals(Places.Turska))
+                if (acc.Country.Equals((Places)cbConutry.SelectedValue))
                 {
                     
                     lbAvailableAccommodations.Items.Add(acc.GetInfo());
