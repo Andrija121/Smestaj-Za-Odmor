@@ -13,14 +13,13 @@ namespace ZadatakOdmor
     public partial class UserForm : Form
     {
         AccommodationManagement accommodationManagement;
-        Accommodation accommodation;
 
 
         public UserForm()
         {
             InitializeComponent();
             accommodationManagement = new AccommodationManagement();
-            accommodation = new Accommodation();
+            
 
         }
         public void RefreshListBox()
@@ -28,7 +27,7 @@ namespace ZadatakOdmor
             lbAvailableAccommodations.Items.Clear();
             foreach (var am in accommodationManagement.GetAccommodations())
             {
-                lbAvailableAccommodations.Items.Add(am.GetInfo());
+                lbAvailableAccommodations.Items.Add(am);
             }
         }
 
@@ -66,8 +65,8 @@ namespace ZadatakOdmor
 
                     if (acc.PricePerNight < 50)
                     {
-                        lbAvailableAccommodations.Items.Add(acc.GetInfo());
-                    }
+                        lbAvailableAccommodations.Items.Add(acc);
+                  }
                 }
 
             }
@@ -83,7 +82,7 @@ namespace ZadatakOdmor
 
                     if (acc.PricePerNight >= 50 && acc.PricePerNight <= 100)
                     {
-                        lbAvailableAccommodations.Items.Add(acc.GetInfo());
+                        lbAvailableAccommodations.Items.Add(acc);
                     }
                 }
             }
@@ -99,7 +98,7 @@ namespace ZadatakOdmor
 
                     if (acc.PricePerNight > 100)
                     {
-                        lbAvailableAccommodations.Items.Add(acc.GetInfo());
+                        lbAvailableAccommodations.Items.Add(acc);
                     }
                 }
             }
@@ -115,7 +114,7 @@ namespace ZadatakOdmor
                     if (acc.Country.Equals((Places) cbConutry.SelectedValue))
                     {
 
-                        lbAvailableAccommodations.Items.Add(acc.GetInfo());
+                        lbAvailableAccommodations.Items.Add(acc);
                     }
 
 
@@ -124,19 +123,26 @@ namespace ZadatakOdmor
         }
 
         private void btnReserve_Click(object sender, EventArgs e)
+       
         {
 
-            DateTime startDate= dateTimePicker1.Value = accommodation.StartDate;
-            DateTime endDate = dateTimePicker2.Value = accommodation.EndDate;
+            DateTime startDate= dateTimePicker1.Value;
+            DateTime endDate = dateTimePicker2.Value;
             if(startDate>endDate)
             {
                 MessageBox.Show("Please Select Valid Dates");
 
             }
+
+            Accommodation accommodation = new Accommodation();
+
+            accommodation.StartDate = startDate;
+            accommodation.EndDate = endDate;
+            //opet radis petlju kad treba da izvrsis akciju na jednom objektu. Cak i da ovo radi, nema puno smisla da prolazis kroz ceo niz
             foreach (var item in accommodationManagement.GetAccommodations())
             {
                 accommodationManagement.ChangeAccommodationStatus(lbAvailableAccommodations.SelectedIndex, AccommodationInfo.Reserved);
-                accommodationManagement.MakeAccommodationReserved(item);
+                //accommodationManagement.MakeAccommodationReserved(item);
             }
             
         }

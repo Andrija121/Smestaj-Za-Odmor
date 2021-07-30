@@ -27,7 +27,7 @@ namespace ZadatakOdmor
             listBoxAccommodation.Items.Clear();
             foreach (var accommodation in accommodationManagement.GetAccommodations())
             {
-                listBoxAccommodation.Items.Add(accommodation.GetInfo());
+                listBoxAccommodation.Items.Add(accommodation);
             }
         }
 
@@ -46,7 +46,9 @@ namespace ZadatakOdmor
             int ppn = Convert.ToInt32(tbPPN.Text);
             string city = tbTown.Text;
 
-            accommodationManagement.CreateNewAccomodation(name, ppn, city, (Places)cbCountry.SelectedItem);
+            var accommodation = new Accommodation(name, ppn, city, (Places)cbCountry.SelectedItem);
+
+            accommodationManagement.CreateNewAccomodation(accommodation);
             RefreshListBox();
             
         }
@@ -62,7 +64,7 @@ namespace ZadatakOdmor
 
                 foreach (var i in accommodationManagement.GetAccommodations())
                 {
-                    listBoxAccommodation.Items.Add(i.GetInfo());
+                    listBoxAccommodation.Items.Add(i);
                 }
             }
             else

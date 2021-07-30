@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace ZadatakOdmor
 {
-    class AccommodationManagement
+    public class AccommodationManagement
     {
-        Accommodation accommodation;
         private static List<Accommodation> accommodations = new List<Accommodation>();
-        private static List<Accommodation> reservedAccommodations = new List<Accommodation>();
+        private static List<Reservation> reservations = new List<Reservation>();
 
 
 
-        public void CreateNewAccomodation(string name, int ppn, string city, Places places)
+        public void CreateNewAccomodation(Accommodation accommodation)
         {
-            accommodation = new Accommodation(name, ppn, city, places);
             accommodations.Add(accommodation);
         }
+
+        //cemu ovo sluzi? primi vrednost i vrati je nazad
         public int getPrice(int ppn)
         {
             return ppn;
@@ -31,21 +31,19 @@ namespace ZadatakOdmor
         {
             return accommodations;
         }
-        public List<Accommodation> GetReservedAccommodations()
+
+        public void MakeReservation(Reservation reservation)
         {
-            return reservedAccommodations;
+           reservations.Add(reservation);
         }
-        public void MakeAccommodationReserved(Accommodation accommodation)
+        public bool CheckIfReserved(Accommodation accommodation, DateTime startDate,DateTime endDate)
         {
-            accommodations.Remove(accommodation);
-            reservedAccommodations.Add(accommodation);
+            //napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno
+
+            return true;
         }
-        public bool CheckIfReserved(DateTime startDate,DateTime endDate)
-        {
-            if (accommodation.StartDate < accommodation.EndDate)
-                return true;
-            else return false;
-        }
+
+        //razmisli jos da li je potreban ovaj status 
         public void ChangeAccommodationStatus(int index,AccommodationInfo accommodationInfo)
         {
             foreach (var item in accommodations)
