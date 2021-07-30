@@ -21,5 +21,10 @@ namespace ZadatakOdmor
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string ReservedBy { get; set; }
+
+        public string GetInfo()
+        {
+            return Accommodation + " - " + StartDate + " - " + EndDate + " - " + ReservedBy;
+        }
     }
 }

@@ -13,12 +13,16 @@ namespace ZadatakOdmor
     public partial class UserForm : Form
     {
         AccommodationManagement accommodationManagement;
+        Accommodation accommodation;
+        User user;
 
 
         public UserForm()
         {
             InitializeComponent();
             accommodationManagement = new AccommodationManagement();
+            accommodation = new Accommodation();
+            user = new User();
             
 
         }
@@ -126,25 +130,32 @@ namespace ZadatakOdmor
        
         {
 
+            int index = lbAvailableAccommodations.SelectedIndex;
             DateTime startDate= dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
-            if(startDate>endDate)
+            if(startDate <= endDate)
+            {
+                Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+
+                accommodation.StartDate = startDate;
+                accommodation.EndDate = endDate;
+                //opet radis petlju kad treba da izvrsis akciju na jednom objektu. Cak i da ovo radi, nema puno smisla da prolazis kroz ceo niz
+                accommodationManagement.ChangeAccommodationStatus(index, AccommodationInfo.Reserved);
+                lbAvailableAccommodations.Items.RemoveAt(index);
+                accommodationManagement.RemoveAccommodation(index);
+                accommodationManagement.MakeReservation(reservation);
+
+
+
+                MessageBox.Show("Reservation Made Succesfully");
+                
+
+            }
+            else if(startDate > endDate )
             {
                 MessageBox.Show("Please Select Valid Dates");
-
             }
 
-            Accommodation accommodation = new Accommodation();
-
-            accommodation.StartDate = startDate;
-            accommodation.EndDate = endDate;
-            //opet radis petlju kad treba da izvrsis akciju na jednom objektu. Cak i da ovo radi, nema puno smisla da prolazis kroz ceo niz
-            foreach (var item in accommodationManagement.GetAccommodations())
-            {
-                accommodationManagement.ChangeAccommodationStatus(lbAvailableAccommodations.SelectedIndex, AccommodationInfo.Reserved);
-                //accommodationManagement.MakeAccommodationReserved(item);
-            }
-            
         }
     }
 }

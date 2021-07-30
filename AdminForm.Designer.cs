@@ -95,9 +95,9 @@
             // 
             this.listBoxAccommodation.FormattingEnabled = true;
             this.listBoxAccommodation.ItemHeight = 20;
-            this.listBoxAccommodation.Location = new System.Drawing.Point(413, 60);
+            this.listBoxAccommodation.Location = new System.Drawing.Point(384, 60);
             this.listBoxAccommodation.Name = "listBoxAccommodation";
-            this.listBoxAccommodation.Size = new System.Drawing.Size(352, 264);
+            this.listBoxAccommodation.Size = new System.Drawing.Size(615, 264);
             this.listBoxAccommodation.TabIndex = 25;
             // 
             // cbCountry
@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);

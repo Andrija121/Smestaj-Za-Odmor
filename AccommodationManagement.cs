@@ -10,6 +10,8 @@ namespace ZadatakOdmor
     {
         private static List<Accommodation> accommodations = new List<Accommodation>();
         private static List<Reservation> reservations = new List<Reservation>();
+        User user = new User();
+        Accommodation accommodation1 = new Accommodation();
 
 
 
@@ -27,6 +29,10 @@ namespace ZadatakOdmor
         {
             accommodations.RemoveAt(aIndex);
         }
+        public void RemoveReservedAccommodations(int aIndex)
+        {
+            reservations.RemoveAt(aIndex);
+        }
         public List<Accommodation> GetAccommodations()
         {
             return accommodations;
@@ -35,6 +41,10 @@ namespace ZadatakOdmor
         public void MakeReservation(Reservation reservation)
         {
            reservations.Add(reservation);
+        }
+        public List<Reservation> GetReservations()
+        {
+            return reservations;
         }
         public bool CheckIfReserved(Accommodation accommodation, DateTime startDate,DateTime endDate)
         {
@@ -54,6 +64,7 @@ namespace ZadatakOdmor
                 }
             }
         }
+       
 
     }
 }

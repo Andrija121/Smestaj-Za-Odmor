@@ -24,11 +24,12 @@ namespace ZadatakOdmor
         }
         public void RefreshListBox()
         {
-            listBoxAccommodation.Items.Clear();
-            foreach (var accommodation in accommodationManagement.GetAccommodations())
-            {
-                listBoxAccommodation.Items.Add(accommodation);
-            }
+            //listBoxAccommodation.Items.Clear();
+            //foreach (var accommodation in accommodationManagement.GetAccommodations())
+            //{
+            //    listBoxAccommodation.Items.Add(accommodation);
+            //}
+            
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace ZadatakOdmor
             var accommodation = new Accommodation(name, ppn, city, (Places)cbCountry.SelectedItem);
 
             accommodationManagement.CreateNewAccomodation(accommodation);
-            RefreshListBox();
+            MessageBox.Show("Accommodation Added Successfully");
             
         }
 
@@ -58,7 +59,7 @@ namespace ZadatakOdmor
             int index = listBoxAccommodation.SelectedIndex;
             if (index != -1)
             {
-                accommodationManagement.RemoveAccommodation(index);
+                accommodationManagement.RemoveReservedAccommodations(index);
 
                 listBoxAccommodation.Items.Clear();
 
@@ -74,6 +75,12 @@ namespace ZadatakOdmor
         private void AdminForm_Load(object sender, EventArgs e)
         {
             RefreshListBox();
+
+            foreach (var item in accommodationManagement.GetReservations())
+            {
+                listBoxAccommodation.Items.Add(item.GetInfo());
+            }
+            
         }
     }
 }
