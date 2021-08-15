@@ -13,7 +13,6 @@ namespace ZadatakOdmor
     public partial class UserForm : Form
     {
         AccommodationManagement accommodationManagement;
-        Accommodation accommodation;
         User user;
 
 
@@ -21,7 +20,6 @@ namespace ZadatakOdmor
         {
             InitializeComponent();
             accommodationManagement = new AccommodationManagement();
-            accommodation = new Accommodation();
             user = new User();
             
 
@@ -50,8 +48,7 @@ namespace ZadatakOdmor
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            
-             
+             //todo cemu sluzi filter dugme?
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
@@ -70,7 +67,8 @@ namespace ZadatakOdmor
                     if (acc.PricePerNight < 50)
                     {
                         lbAvailableAccommodations.Items.Add(acc);
-                  }
+
+                    }
                 }
 
             }
@@ -126,6 +124,7 @@ namespace ZadatakOdmor
             }
         }
 
+        //todo dugme za rezervaciju treba da proveri da li ima vec rezervacija tog smestaja za taj termin
         private void btnReserve_Click(object sender, EventArgs e)
        
         {
@@ -133,14 +132,12 @@ namespace ZadatakOdmor
             int index = lbAvailableAccommodations.SelectedIndex;
             DateTime startDate= dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
+            Accommodation accommodation = (Accommodation) lbAvailableAccommodations.SelectedItem;
             if(startDate <= endDate)
             {
                 Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
 
-                accommodation.StartDate = startDate;
-                accommodation.EndDate = endDate;
-                //opet radis petlju kad treba da izvrsis akciju na jednom objektu. Cak i da ovo radi, nema puno smisla da prolazis kroz ceo niz
-                accommodationManagement.ChangeAccommodationStatus(index, AccommodationInfo.Reserved);
+                //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
                 lbAvailableAccommodations.Items.RemoveAt(index);
                 accommodationManagement.RemoveAccommodation(index);
                 accommodationManagement.MakeReservation(reservation);
