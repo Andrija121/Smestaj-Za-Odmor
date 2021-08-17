@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZadatakOdmor
 {
-    class User
+    public class User
     {
         private string username = "user";
         private string password = "user";

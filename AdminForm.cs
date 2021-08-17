@@ -12,14 +12,12 @@ namespace ZadatakOdmor
 {
     public partial class AdminForm : Form
     {
-        Admin admin;
         AccommodationManagement accommodationManagement;
         //Accommodation accommodation;
         public AdminForm()
         {
             InitializeComponent();
             cbCountry.DataSource = Enum.GetValues(typeof(Places));
-            admin = new Admin();
             accommodationManagement = new AccommodationManagement();
         }
         public void RefreshListBox()

@@ -6,26 +6,13 @@ using System.Threading.Tasks;
 
 namespace ZadatakOdmor
 {
-    class Admin
+    public class Admin
     {
-        
         private string username = "admin";
         private string password = "admin";
 
-
-        
-
-       
         public string Username { get { return username; } }
         public string Password { get { return password; } }
 
-
-
-        public Admin()
-        {
-            
-        }
-
-        
     }
 }

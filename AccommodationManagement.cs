@@ -10,9 +10,6 @@ namespace ZadatakOdmor
     {
         private static List<Accommodation> accommodations = new List<Accommodation>();
         private static List<Reservation> reservations = new List<Reservation>();
-        User user = new User();
-        Accommodation accommodation1 = new Accommodation();
-
 
 
         public void CreateNewAccomodation(Accommodation accommodation)
@@ -20,11 +17,6 @@ namespace ZadatakOdmor
             accommodations.Add(accommodation);
         }
 
-        //cemu ovo sluzi? primi vrednost i vrati je nazad
-        public int getPrice(int ppn)
-        {
-            return ppn;
-        }
         public void RemoveAccommodation(int aIndex)
         {
             accommodations.RemoveAt(aIndex);
@@ -48,23 +40,9 @@ namespace ZadatakOdmor
         }
         public bool CheckIfReserved(Accommodation accommodation, DateTime startDate,DateTime endDate)
         {
-            //napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno
+            //todo napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno
 
             return true;
         }
-
-        //razmisli jos da li je potreban ovaj status 
-        public void ChangeAccommodationStatus(int index,AccommodationInfo accommodationInfo)
-        {
-            foreach (var item in accommodations)
-            {
-                if(item.ID==index)
-                {
-                    item.InfoEnum = accommodationInfo;
-                }
-            }
-        }
-       
-
     }
 }
