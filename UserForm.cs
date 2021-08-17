@@ -57,7 +57,7 @@ namespace ZadatakOdmor
         }
 
         private void rbLess50_CheckedChanged(object sender, EventArgs e){
-            //todo napraviti cenu od-do (npr. mobile.de)
+            //todo napraviti cenu od-do (npr. mobile.de)!
             if (rbLess50.Checked)
             {
                 lbAvailableAccommodations.Items.Clear();
