@@ -52,6 +52,7 @@ namespace ZadatakOdmor
             
         }
 
+        //todo kad izbrises rezervacije, vrati accommodation. popravi to
         private void btnRemoveAccomodation_Click(object sender, EventArgs e)
         {
             int index = listBoxAccommodation.SelectedIndex;

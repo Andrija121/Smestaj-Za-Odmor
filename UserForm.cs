@@ -57,7 +57,7 @@ namespace ZadatakOdmor
         }
 
         private void rbLess50_CheckedChanged(object sender, EventArgs e){
-
+            //todo napraviti cenu od-do (npr. mobile.de)
             if (rbLess50.Checked)
             {
                 lbAvailableAccommodations.Items.Clear();
@@ -138,9 +138,12 @@ namespace ZadatakOdmor
                 Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
 
                 //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
-                lbAvailableAccommodations.Items.RemoveAt(index);
-                accommodationManagement.RemoveAccommodation(index);
+                
+                
                 accommodationManagement.MakeReservation(reservation);
+
+
+                //da proverim da li su rezervisan izabrani smestaj u tom datumu
 
 
 
