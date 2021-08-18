@@ -52,7 +52,7 @@ namespace ZadatakOdmor
             
         }
 
-        //todo kad izbrises rezervacije, vrati accommodation. popravi to
+        //todo kad izbrises rezervacije, vrati accommodation. popravi to //done
         private void btnRemoveAccomodation_Click(object sender, EventArgs e)
         {
             int index = listBoxAccommodation.SelectedIndex;
@@ -62,7 +62,7 @@ namespace ZadatakOdmor
 
                 listBoxAccommodation.Items.Clear();
 
-                foreach (var i in accommodationManagement.GetAccommodations())
+                foreach (var i in accommodationManagement.GetReservations())
                 {
                     listBoxAccommodation.Items.Add(i);
                 }

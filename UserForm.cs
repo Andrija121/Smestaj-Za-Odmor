@@ -46,10 +46,7 @@ namespace ZadatakOdmor
             cbConutry.DataSource = Enum.GetValues(typeof(Places));
         }
 
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-             //todo cemu sluzi filter dugme?
-        }
+      
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
@@ -129,27 +126,28 @@ namespace ZadatakOdmor
        
         {
 
-            int index = lbAvailableAccommodations.SelectedIndex;
+            
             DateTime startDate= dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
             Accommodation accommodation = (Accommodation) lbAvailableAccommodations.SelectedItem;
             if(startDate <= endDate)
             {
-                Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
 
+                foreach (var a in accommodationManagement.GetAccommodations())
+                {
+                    if (accommodationManagement.CheckIfReserved(accommodation, startDate, endDate) == true)
+                    {
+                        Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+                        MessageBox.Show("Reservation Made Succesfully");
+                        
+
+                    }
+                    else
+                        MessageBox.Show("Reservation Not Made Succesfully");
+                }
+                
                 //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
-                
-                
-                accommodationManagement.MakeReservation(reservation);
-
-
                 //da proverim da li su rezervisan izabrani smestaj u tom datumu
-
-
-
-                MessageBox.Show("Reservation Made Succesfully");
-                
-
             }
             else if(startDate > endDate )
             {

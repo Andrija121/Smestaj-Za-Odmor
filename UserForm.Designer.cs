@@ -144,7 +144,7 @@
             this.btnFilter.TabIndex = 31;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+          //  this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // label5
             // 
