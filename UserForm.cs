@@ -123,28 +123,27 @@ namespace ZadatakOdmor
 
         //todo dugme za rezervaciju treba da proveri da li ima vec rezervacija tog smestaja za taj termin
         private void btnReserve_Click(object sender, EventArgs e)
-       
+      
         {
-
+            if(lbAvailableAccommodations.SelectedIndex!=-1)
+            { 
             
             DateTime startDate= dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
             Accommodation accommodation = (Accommodation) lbAvailableAccommodations.SelectedItem;
             if(startDate <= endDate)
             {
-
-                foreach (var a in accommodationManagement.GetAccommodations())
-                {
-                    if (accommodationManagement.CheckIfReserved(accommodation, startDate, endDate) == true)
+                Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+                if (accommodationManagement.CheckIfAvailable(accommodation, startDate, endDate) == true)
                     {
-                        Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+                       
+                        accommodationManagement.MakeReservation(reservation);
                         MessageBox.Show("Reservation Made Succesfully");
-                        
 
                     }
                     else
                         MessageBox.Show("Reservation Not Made Succesfully");
-                }
+                
                 
                 //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
                 //da proverim da li su rezervisan izabrani smestaj u tom datumu
@@ -153,6 +152,16 @@ namespace ZadatakOdmor
             {
                 MessageBox.Show("Please Select Valid Dates");
             }
+            }
+            else
+            {
+                MessageBox.Show("Please select the accommodation");
+            }
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

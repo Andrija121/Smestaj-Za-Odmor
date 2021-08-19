@@ -38,23 +38,40 @@ namespace ZadatakOdmor
         {
             return reservations;
         }
-        public bool CheckIfReserved(Accommodation accommodation, DateTime startDate,DateTime endDate)
+        public bool CheckIfAvailable(Accommodation accommodation, DateTime startDate,DateTime endDate)
         {
-
-
             foreach (var r in reservations)
             {
-                if (startDate>endDate )
+                if (r.Accommodation == accommodation)
                 {
-                    return true;
+                    if (r.StartDate > endDate)
+                    {
+                        return false;
+                    }
+                    else if (startDate < r.EndDate)
+                    {
+                        return false;
+                    }
+                    else if (r.EndDate > startDate)
+                    {
+                        return false;
+                    }
+                    else if(startDate==r.EndDate)
+                    {
+                        return true;
+                    }
+                    
                 }
-
+                
             }
-                return false;
+            return true;
+
+        }
+                
 
             //todo napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno
 
 
         }
     }
-}
+
