@@ -53,55 +53,14 @@ namespace ZadatakOdmor
             RefreshListBox();
         }
 
-        private void rbLess50_CheckedChanged(object sender, EventArgs e){
-            //todo napraviti cenu od-do (npr. mobile.de)!
-            if (rbLess50.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
+        
+            //todo napraviti cenu od-do (npr. mobile.de)! //done
+           
+        
 
-                    if (acc.PricePerNight < 50)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
+        
 
-                    }
-                }
-
-            }
-        }
-
-        private void rbLess100more50_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbLess100more50.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
-
-                    if (acc.PricePerNight >= 50 && acc.PricePerNight <= 100)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
-                    }
-                }
-            }
-        }
-
-        private void rb100plus_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb100plus.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
-
-                    if (acc.PricePerNight > 100)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
-                    }
-                }
-            }
-        }
+       
 
         private void cbConutry_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -145,8 +104,8 @@ namespace ZadatakOdmor
                         MessageBox.Show("Reservation Not Made Succesfully");
                 
                 
-                //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
-                //da proverim da li su rezervisan izabrani smestaj u tom datumu
+                //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu//done
+                //da proverim da li su rezervisan izabrani smestaj u tom datumu//done
             }
             else if(startDate > endDate )
             {
@@ -163,6 +122,22 @@ namespace ZadatakOdmor
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            lbAvailableAccommodations.Items.Clear();
+            int minPrice = Convert.ToInt32(tbMinPrice.Text);
+            int maxPrice = Convert.ToInt32(tbMaxPrice.Text);
+
+
+            foreach (var a in accommodationManagement.GetAccommodations())
+            {
+                if(a.PricePerNight>=minPrice && a.PricePerNight<=maxPrice)
+                {
+                    lbAvailableAccommodations.Items.Add(a);
+                }
+            }
         }
     }
 }

@@ -44,15 +44,7 @@ namespace ZadatakOdmor
             {
                 if (r.Accommodation == accommodation)
                 {
-                    if (r.StartDate > endDate)
-                    {
-                        return false;
-                    }
-                    else if (startDate < r.EndDate)
-                    {
-                        return false;
-                    }
-                    else if (r.EndDate > startDate)
+                    if (r.StartDate > endDate || startDate < r.EndDate || r.EndDate > startDate)
                     {
                         return false;
                     }
@@ -69,7 +61,7 @@ namespace ZadatakOdmor
         }
                 
 
-            //todo napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno
+            //todo napravi logiku da prodjes kroz listu rezervaciju i proveri da li je slobodno //done
 
 
         }
