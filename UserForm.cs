@@ -46,65 +46,21 @@ namespace ZadatakOdmor
             cbConutry.DataSource = Enum.GetValues(typeof(Places));
         }
 
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-             //todo cemu sluzi filter dugme?
-        }
+      
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
             RefreshListBox();
         }
 
-        private void rbLess50_CheckedChanged(object sender, EventArgs e){
-            //todo napraviti cenu od-do (npr. mobile.de)
-            if (rbLess50.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
+        
+            //todo napraviti cenu od-do (npr. mobile.de)! //done
+           
+        
 
-                    if (acc.PricePerNight < 50)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
+        
 
-                    }
-                }
-
-            }
-        }
-
-        private void rbLess100more50_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbLess100more50.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
-
-                    if (acc.PricePerNight >= 50 && acc.PricePerNight <= 100)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
-                    }
-                }
-            }
-        }
-
-        private void rb100plus_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb100plus.Checked)
-            {
-                lbAvailableAccommodations.Items.Clear();
-                foreach (var acc in accommodationManagement.GetAccommodations())
-                {
-
-                    if (acc.PricePerNight > 100)
-                    {
-                        lbAvailableAccommodations.Items.Add(acc);
-                    }
-                }
-            }
-        }
+       
 
         private void cbConutry_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,36 +82,62 @@ namespace ZadatakOdmor
 
         //todo dugme za rezervaciju treba da proveri da li ima vec rezervacija tog smestaja za taj termin
         private void btnReserve_Click(object sender, EventArgs e)
-       
+      
         {
-
-            int index = lbAvailableAccommodations.SelectedIndex;
+            if(lbAvailableAccommodations.SelectedIndex!=-1)
+            { 
+            
             DateTime startDate= dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
             Accommodation accommodation = (Accommodation) lbAvailableAccommodations.SelectedItem;
             if(startDate <= endDate)
             {
                 Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+                if (accommodationManagement.CheckIfAvailable(accommodation, startDate, endDate) == true)
+                    {
+                       
+                        accommodationManagement.MakeReservation(reservation);
+                        MessageBox.Show("Reservation Made Succesfully");
 
-                //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu
+                    }
+                    else
+                        MessageBox.Show("Reservation Not Made Succesfully");
                 
                 
-                accommodationManagement.MakeReservation(reservation);
-
-
-                //da proverim da li su rezervisan izabrani smestaj u tom datumu
-
-
-
-                MessageBox.Show("Reservation Made Succesfully");
-                
-
+                //todo zbog ovoga je moguce samo uraditi jednu rezervaciju. Ako ti rezervises u 8 osmom mesecu, ja necu moci da rezervisem u devetom mesecu//done
+                //da proverim da li su rezervisan izabrani smestaj u tom datumu//done
             }
             else if(startDate > endDate )
             {
                 MessageBox.Show("Please Select Valid Dates");
             }
+            }
+            else
+            {
+                MessageBox.Show("Please select the accommodation");
+            }
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            lbAvailableAccommodations.Items.Clear();
+            int minPrice = Convert.ToInt32(tbMinPrice.Text);
+            int maxPrice = Convert.ToInt32(tbMaxPrice.Text);
+
+
+            foreach (var a in accommodationManagement.GetAccommodations())
+            {
+                if(a.PricePerNight>=minPrice && a.PricePerNight<=maxPrice)
+                {
+                    lbAvailableAccommodations.Items.Add(a);
+                }
+            }
         }
     }
 }
