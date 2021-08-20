@@ -88,5 +88,12 @@ namespace ZadatakOdmor.Test
             Assert.IsFalse(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 10, 1),
                 new DateTime(2021, 10, 30)));
         }
+
+        [TestMethod]
+        public void ReservationTest_True_WhenShorter()
+        {
+            Assert.IsFalse(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 10, 16),
+                new DateTime(2021, 10, 18)));
+        }
     }
 }
