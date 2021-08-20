@@ -2,7 +2,7 @@ name: Build and Tests
 
 on:  
   push:
-    branches: [ main ]
+    branches: [ feature/ReservationFuncionality ]
   pull_request:
     branches: [ main ]
 
