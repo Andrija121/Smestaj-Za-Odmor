@@ -48,9 +48,16 @@ namespace ZadatakOdmor.Test
         }
 
         [TestMethod]
+        public void ReservationTest_False_WhenSameEndDate()
+        {
+            Assert.IsFalse(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 08, 07),
+                new DateTime(2021, 08, 09)));
+        }
+
+        [TestMethod]
         public void ReservationTest_True_WhenSameStartDate()
         {
-            Assert.IsFalse(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 08, 09),
+            Assert.IsTrue(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 08, 09),
                 new DateTime(2021, 08, 10)));
         }
 
@@ -73,6 +80,13 @@ namespace ZadatakOdmor.Test
         {
             Assert.IsTrue(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 08, 17),
                 new DateTime(2021, 08, 22)));
+        }
+
+        [TestMethod]
+        public void ReservationTest_True_WhenLonger()
+        {
+            Assert.IsFalse(_accommodationManagement.CheckIfAvailable(_accommodation, new DateTime(2021, 10, 1),
+                new DateTime(2021, 10, 30)));
         }
     }
 }
