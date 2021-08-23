@@ -44,20 +44,23 @@ namespace ZadatakOdmor
             {
                 if (r.Accommodation == accommodation)
                 {
-                    if (startDate < r.EndDate || r.StartDate > endDate)
+                    if (startDate >= r.StartDate && startDate < r.EndDate)
                     {
                         return false;
                     }
-                    else if (startDate == r.EndDate)
+
+                    if (endDate > r.StartDate && endDate <= r.EndDate)
                     {
-                        return true;
+                        return false;
                     }
-                    else
-                        return true;
-                    
+
+                    if (startDate <= r.StartDate && endDate >= r.EndDate)
+                    {
+                        return false;
+                    }
                 }
-                
             }
+
             return true;
 
 
