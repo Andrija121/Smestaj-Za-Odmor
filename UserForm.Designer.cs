@@ -35,6 +35,11 @@
             this.btnReserve = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbMaxPrice = new System.Windows.Forms.TextBox();
+            this.tbMinPrice = new System.Windows.Forms.TextBox();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,11 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.tbMinPrice = new System.Windows.Forms.TextBox();
-            this.tbMaxPrice = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +123,47 @@
             this.panel1.Size = new System.Drawing.Size(218, 276);
             this.panel1.TabIndex = 23;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(132, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 20);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Max Price";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 125);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 20);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Min Price";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(106, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 20);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "-";
+            // 
+            // tbMaxPrice
+            // 
+            this.tbMaxPrice.Location = new System.Drawing.Point(127, 148);
+            this.tbMaxPrice.Name = "tbMaxPrice";
+            this.tbMaxPrice.Size = new System.Drawing.Size(82, 26);
+            this.tbMaxPrice.TabIndex = 33;
+            // 
+            // tbMinPrice
+            // 
+            this.tbMinPrice.Location = new System.Drawing.Point(4, 148);
+            this.tbMinPrice.Name = "tbMinPrice";
+            this.tbMinPrice.Size = new System.Drawing.Size(82, 26);
+            this.tbMinPrice.TabIndex = 32;
+            // 
             // btnShowAll
             // 
             this.btnShowAll.Location = new System.Drawing.Point(44, 231);
@@ -194,47 +235,6 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(292, 26);
             this.dateTimePicker2.TabIndex = 25;
-            // 
-            // tbMinPrice
-            // 
-            this.tbMinPrice.Location = new System.Drawing.Point(4, 148);
-            this.tbMinPrice.Name = "tbMinPrice";
-            this.tbMinPrice.Size = new System.Drawing.Size(82, 26);
-            this.tbMinPrice.TabIndex = 32;
-            // 
-            // tbMaxPrice
-            // 
-            this.tbMaxPrice.Location = new System.Drawing.Point(127, 148);
-            this.tbMaxPrice.Name = "tbMaxPrice";
-            this.tbMaxPrice.Size = new System.Drawing.Size(82, 26);
-            this.tbMaxPrice.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(106, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 20);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "-";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 125);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 20);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Min Price";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(132, 125);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 20);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "Max Price";
             // 
             // UserForm
             // 

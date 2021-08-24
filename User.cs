@@ -8,11 +8,26 @@ namespace ZadatakOdmor
 {
     public class User
     {
-        private string username = "user";
-        private string password = "user";
+        private int id;
+        private string username ;
+        private string password ;
 
         public string Username { get { return username; } }
         public string Password { get { return password; } }
+        public int ID { get { return id; } }
+
+
+        public User(string username,string password)
+        {
+            this.id = ID;
+            this.username= username;
+            this.password = password;
+        }
+        public User()
+        {
+
+        }
+        
 
 
     }
