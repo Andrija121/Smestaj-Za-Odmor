@@ -21,10 +21,12 @@ namespace ZadatakOdmor
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
+            
             string username = tbUserName.Text;
             string password = tbPassword.Text;
             User user = new User(username, password);
             userManagement.AddUser(user);
+            
         }
 
         private void SignUp_Load(object sender, EventArgs e)

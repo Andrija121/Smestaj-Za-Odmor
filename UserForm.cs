@@ -13,14 +13,14 @@ namespace ZadatakOdmor
     public partial class UserForm : Form
     {
         AccommodationManagement accommodationManagement;
-        User user;
+        
 
 
         public UserForm()
         {
             InitializeComponent();
             accommodationManagement = new AccommodationManagement();
-            user = new User();
+           
             
 
         }
@@ -92,7 +92,7 @@ namespace ZadatakOdmor
             Accommodation accommodation = (Accommodation) lbAvailableAccommodations.SelectedItem;
             if(startDate <= endDate)
             {
-                Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value, user.Username);
+                Reservation reservation = new Reservation(accommodation, dateTimePicker1.Value, dateTimePicker2.Value,"");
                 if (accommodationManagement.CheckIfAvailable(accommodation, startDate, endDate) == true)
                     {
                        
