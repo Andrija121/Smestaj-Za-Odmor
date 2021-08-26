@@ -38,23 +38,24 @@ namespace ZadatakOdmor
 
             }
             else
-            foreach (var u in userManagement.GetUsers())
             {
-                if(u.Username==userName && u.Password==password)
-                {
-                        user = u;
-                }
-                if(user==null)
-                {
-                        MessageBox.Show("Wrong username or passowrd");
-                }
-                else
-                {
-                        UserForm userForm = new UserForm();
-                        userForm.Show();
-                        this.Close();        
-                }
 
+
+                foreach (var u in userManagement.GetUsers())
+                {
+                    if (u.Username == userName && u.Password == password)
+                    {
+                        user = u;
+                        UserForm userForm = new UserForm(user);
+                        userForm.Show();
+                        this.Close();
+                        break;
+                    }
+                }
+                if (user == null)
+                {
+                    MessageBox.Show("Wrong username or passowrd");
+                }
             }
         }
 

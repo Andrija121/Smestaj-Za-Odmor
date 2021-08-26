@@ -44,7 +44,7 @@ namespace ZadatakOdmor
             {
                 if (r.Accommodation == accommodation)
                 {
-                    if (startDate >= r.StartDate && startDate < r.EndDate)
+                    if (startDate >r.StartDate && startDate < r.EndDate)
                     {
                         return false;
                     }
