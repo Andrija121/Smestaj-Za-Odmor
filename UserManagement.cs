@@ -8,13 +8,13 @@ namespace ZadatakOdmor
 {
     class UserManagement
     {
-        static List<User> users = new  List<User>();
+       public static List<User> users = new  List<User>();
 
         public bool AddUser(User user)
         {
-            foreach (var  u in users)
+            foreach (var u in users)
             {
-                if(u.ID==user.ID)
+                if(u==user)
                 {
                     return false;
                 }
@@ -22,6 +22,7 @@ namespace ZadatakOdmor
             users.Add(user);
             return true;
         }
+
         public List<User> GetUsers()
         {
             return users;

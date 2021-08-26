@@ -13,7 +13,7 @@
         public string NameOfAccomodation { get; }
         public int PricePerNight { get; }
         public string City { get; }
-        public int ID { get; }
+        public int ID { get }
         public Places Country { get; }
 
 

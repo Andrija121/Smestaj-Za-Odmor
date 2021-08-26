@@ -13,13 +13,13 @@ namespace ZadatakOdmor
     public partial class Form1 : Form
     {
         Admin admin;
-        User user;
+       
         UserManagement userManagement;
         public Form1()
         {
             InitializeComponent();
             admin = new Admin();
-            user = new User();
+            
             userManagement = new UserManagement();
         }
 
@@ -28,6 +28,7 @@ namespace ZadatakOdmor
 
             string userName = tbUserName.Text;
             string password = tbPassword.Text;
+            User user = null;
             if (admin.Username == userName && admin.Password == password)
             {
                 AdminForm adminForm = new AdminForm();
@@ -37,15 +38,21 @@ namespace ZadatakOdmor
 
             }
             else
-            foreach (var u in userManagement.GetUsers())
             {
-                if(u.Username==userName && u.Password==password)
+
+
+                foreach (var u in userManagement.GetUsers())
                 {
-                    UserForm userForm = new UserForm();
-                    userForm.Show();
-                    this.Hide();
+                    if (u.Username == userName && u.Password == password)
+                    {
+                        user = u;
+                        UserForm userForm = new UserForm(user);
+                        userForm.Show();
+                        this.Close();
+                        break;
+                    }
                 }
-                else
+                if (user == null)
                 {
                     MessageBox.Show("Wrong username or passowrd");
                 }
